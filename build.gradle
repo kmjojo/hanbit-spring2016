@@ -14,8 +14,14 @@ repositories {	// 각종 라이브러리들을 각 개발 사이트가서 다운
     mavenCentral()
 }
 
-dependencies {	// 프로젝트와 외부 라이브러리 간의 의존성 
+[configurations.runtime, configurations.default]*.exclude(module: 'commons-logging')	// 오래된 라이브러리인 commons-logging은 ㄲㅈ
+dependencies {	// 프로젝트와 외부 라이브러리 간의 의존성
 	compile group: 'org.springframework', name: 'spring-context', version: '4.3.3.RELEASE'
+	
+	compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.21'
+	compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.21'
+	
+	
 }
 
 test {	// 테스트를 위한 속성 정의

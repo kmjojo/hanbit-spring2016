@@ -5,10 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<bean id="firstBean" class="com.hanbit.spring.FirstBean">
-		<property name="secondBean" ref="secondBean" />	<!-- firstBean에 있는 속성명, 스프링 컨테이너 안에 있는 id  --><!-- DI -->
-	</bean>
+	<context:annotation-config /> <!-- configuration을 annotation 기반으로 씀 -->
 	
-	<bean id="secondBean" class="com.hanbit.spring.SecondBean"></bean>
+	<!-- base-package 아래에 있는 클래스 중에서 컴포넌트 어노테이션이 붙은 컴포넌트를 찾음 -->
+	<context:component-scan base-package="com.hanbit.spring"></context:component-scan>
 
 </beans>
