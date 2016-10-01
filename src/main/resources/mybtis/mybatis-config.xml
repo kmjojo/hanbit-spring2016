@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- dtd: xml에 들어갈 수 있는 정의들 -->
+
+<configuration>
+
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/> <!-- 자바에서 userId처럼 대소문자가 섞여 있는 것을 userid 로 바꿔줌 -->
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="com.hanbit.spring.core.vo.UserVO" alias="userVO"/>
+	</typeAliases>
+
+</configuration>

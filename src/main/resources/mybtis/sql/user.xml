@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+
+	<insert id="insertUser" parameterType="UserVO">
+		INSERT INTO user 
+			(user_id, user_email, user_password) 
+		VALUES 
+			(#{userId}, #{userEmail}, #{userPasword})
+	</insert>
+	
+	<insert id="insertUserDetail" parameterType="UserVO">
+		INSERT INTO user_detail 
+			(user_id, user_tel, user_birthday user_photo) 
+		VALUES 
+			(#{userId}, #{userTel}, #{userBirthday}, #{userPhoto})
+	</insert>
+	
+	<select id="countEmail" parameterType="string" resultType="int">
+		SELECT COUNT(user_id)
+		  FROM user
+		WHERE user_email = #{userEmail}	<!-- 지금은 파라미터가 하나라서 #{email}로 안써도 되지만 파라미터 개수가 1개 이상이면 맞춰서 써야함 -->
+	</select>
+	
+	<update id="updateUser" parameterType="userVO">
+		UPDATE USER
+		SET user_email = #{userEmail}, user_password = #{userPasword}
+		WHERE user_id = #{userId}
+	</update>
+	
+	<select id="selectPassword" parameterType="string" resultType="string">
+		SELECT user_password
+		FROM user
+		WHERE user_id = #{userId}	<!-- #붙이면 파라미터 타입에 따라서 String이면 ' '가 붙는데 $붙이면 값이 그대로 들어감 -->
+	</select>
+	
+	<select id="selectUsers" resultType="userVO">
+	<!-- <![CDATA[]]> -->
+		SELECT	u.user_id, user_email, user_tel, user_birthday, user_photo 
+		FROM		user u, user_detail d 
+		WHERE	u.user_id = d.user_id
+	</select>
+	
+	<select id="selectUserDetail" parameterType="String" resultType="userVO">
+		SELECT u.user_id, user_email, user_tel, user_birthday, user_photo 
+		FROM user u, user_detail d 
+		WHERE u.user_id = d.user_id
+		AND u.user_id = #{userId}
+	</select>
+	
+	<delete id="deleteUser" parameterType="string">
+		DELETE FROM user
+		WHERE user_id = #{userId}
+	</delete>
+	
+	<delete id="deleteUserDetail" parameterType="string">
+		DELETE FROM user_detail
+		WHERE user_id = #{userId}
+	</delete>
+	
+	
+</mapper>

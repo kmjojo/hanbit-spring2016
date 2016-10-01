@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository	// spring container에 등록됨
 public class ExampleDAO {
+	
 	private final Logger logger = LoggerFactory.getLogger(ExampleDAO.class);
-
+	
 }
