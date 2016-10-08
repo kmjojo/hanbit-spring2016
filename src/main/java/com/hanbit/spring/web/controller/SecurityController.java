@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +26,9 @@ public class SecurityController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ApplicationContext SessionHelper;	// getBean 할 때마다 세션에 맞게 가져옴
 
 	@RequestMapping("/security/session/test")
 	@ResponseBody
