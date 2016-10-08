@@ -78,5 +78,7 @@ public class UserService {
 		
 		return userDAO.selectUserDetail(userId);
 	}
+	
+	// 세션에 저장된 userEmail 가져와서 DB에 저장되어 있는 이메일인지 비교하는 함수
 
 }
