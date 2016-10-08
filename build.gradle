@@ -1,9 +1,11 @@
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
 
 sourceCompatibility = 1.8	// 1.5->1.8 
 version = '1.0'
-jar {
+
+war {
     manifest {	// 어떤 프로그램이고 버전은 얼마인지..뭐하는 것인지 설명
         attributes 'Implementation-Title': 'Gradle Quickstart',
                    'Implementation-Version': version
@@ -43,3 +45,5 @@ uploadArchives {	// 압축하기 위한 설정. 수업 때는 사용안함
        }
     }
 }
+
+project.webAppDirName = 'webapp'		// 이 파일을 root로 설정함
