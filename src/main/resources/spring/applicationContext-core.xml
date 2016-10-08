@@ -8,7 +8,7 @@
 	<context:annotation-config /> <!-- configuration을 annotation 기반으로 씀 -->
 	
 	<!-- base-package 아래에 있는 클래스 중에서 컴포넌트 어노테이션이 붙은 컴포넌트를 찾음 -->
-	<context:component-scan base-package="com.hanbit.spring.core"></context:component-scan>
+	<context:component-scan base-package="com.hanbit.spring.core" />
 	
 	
 
